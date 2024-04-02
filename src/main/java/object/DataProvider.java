@@ -14,7 +14,7 @@ public class DataProvider {
 
     public static String generateRandomUsername() {
         String username = RandomStringUtils.randomAlphanumeric(7);
-        char firstChar = Character.toUpperCase(username.charAt(0)); 
+        char firstChar = Character.toUpperCase(username.charAt(0));
         return firstChar + username.substring(1);
     }
 
@@ -23,7 +23,7 @@ public class DataProvider {
         return username + "@example.com";
     }
 
-    public static String generateRandomDOB() {
+    public static String generateRandomBirthDate() {
         LocalDate start = LocalDate.of(1970, 1, 1);
         LocalDate end = LocalDate.of(2000, 12, 31);
         LocalDate randomDate = start.plusDays(ThreadLocalRandom.current().nextLong(0, end.toEpochDay() - start.toEpochDay()));

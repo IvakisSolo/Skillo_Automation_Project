@@ -48,7 +48,7 @@ public class ProjectTests extends TestObject {
 
         registerPage.fillUserName(DataProvider.generateRandomUsername());
         registerPage.fillEmail(DataProvider.generateRandomEmail());
-        registerPage.fillBirthDate(DataProvider.generateRandomDOB());
+        registerPage.fillBirthDate(DataProvider.generateRandomBirthDate());
         registerPage.fillPassword(DataProvider.generateRandomPassword());
         registerPage.fillConfirmPassword(DataProvider.generateRandomConfirmPassword());
         registerPage.fillPublicInfo(DataProvider.generateRandomInfo());
