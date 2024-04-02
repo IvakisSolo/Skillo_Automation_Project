@@ -8,16 +8,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class DataProvider {
 
-    private static final RandomStringGenerator STRING_GENERATOR =
-            new RandomStringGenerator.Builder()
-                    .withinRange('a', 'z')
-                    .build();
+    private static final RandomStringGenerator STRING_GENERATOR = new RandomStringGenerator.Builder().withinRange('a', 'z').build();
 
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public static String generateRandomUsername() {
-        String username = RandomStringUtils.randomAlphanumeric(7); // 7 characters username
-        char firstChar = Character.toUpperCase(username.charAt(0)); // Capitalize the first character
+        String username = RandomStringUtils.randomAlphanumeric(7);
+        char firstChar = Character.toUpperCase(username.charAt(0)); 
         return firstChar + username.substring(1);
     }
 
@@ -36,7 +33,7 @@ public class DataProvider {
     private static String randomPassword;
 
     public static String generateRandomPassword() {
-        randomPassword = RandomStringUtils.randomAlphanumeric(10); // Store the generated random password
+        randomPassword = RandomStringUtils.randomAlphanumeric(10);
         char randomUpperCase = (char) ThreadLocalRandom.current().nextInt('A', 'Z' + 1);
         char randomDigit = (char) ThreadLocalRandom.current().nextInt('0', '9' + 1);
         int replaceIndex = ThreadLocalRandom.current().nextInt(randomPassword.length());
