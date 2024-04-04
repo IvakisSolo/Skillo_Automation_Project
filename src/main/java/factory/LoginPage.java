@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage {
-    public static final String PAGE_URL = "http://training.skillo-bg.com:4300/users/login";
+    public static final String PAGE_URL = "http://training.skillo-bg.com:4200/users/login";
     private final WebDriver webDriver;
 
     @FindBy(id ="defaultLoginFormUsername")
@@ -21,7 +21,7 @@ public class LoginPage {
     private WebElement rememberMeCheckbox;
     @FindBy(id = "sign-in-button")
     private WebElement signInButton;
-    @FindBy(xpath = "/html/body/app-root/div[2]/app-login/div/div/form/p[2]/a")
+    @FindBy(xpath = "//span[@class='color-black']/following-sibling::a")
     private WebElement registerButton;
 
     public LoginPage(WebDriver driver){

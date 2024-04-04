@@ -25,25 +25,25 @@ public class TestObject {
     public static final String REPORTS_DIR = TEST_RESOURCES_DIR.concat("reports\\");
     private WebDriver webDriver;
 
-    @BeforeSuite
+    @BeforeSuite(alwaysRun = true)
     protected final void setupTestSuite() throws IOException{
         cleanDirectory(SCREENSHOTS_DIR);
         cleanDirectory(REPORTS_DIR);
         WebDriverManager.chromedriver().setup();
     }
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     protected final void setUpTest(){
         this.webDriver = new ChromeDriver(configChromeOptions());
         this.webDriver.manage().window().maximize();
         this.webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         this.webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     protected final void tearDownTest(ITestResult testResult){
         takeScreenshot(testResult);
         quitDriver();
     }
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void deleteDownloadFiles() throws IOException{
         cleanDirectory(DOWNLOAD_DIR);
     }

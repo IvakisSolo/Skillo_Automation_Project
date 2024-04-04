@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class ProfilePage {
-    public static final String PAGE_URL = "http://training.skillo-bg.com:4300/users/";
+    public static final String PAGE_URL = "http://training.skillo-bg.com:4200/users/";
     public final WebDriver webDriver;
 
     @FindBy(xpath = "//*[@class='row no-gutters']//app-post[1]//*[@class='post-img']")

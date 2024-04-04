@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.File;
-import java.util.concurrent.TimeUnit;
 
 public class ProjectTests extends TestObject {
     ChromeDriver webDriver;
@@ -20,8 +19,6 @@ public class ProjectTests extends TestObject {
         webDriver = new ChromeDriver();
 
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterMethod(alwaysRun = true)
@@ -48,11 +45,8 @@ public class ProjectTests extends TestObject {
 
         registerPage.fillUserName(DataProvider.generateRandomUsername());
         registerPage.fillEmail(DataProvider.generateRandomEmail());
-        registerPage.fillBirthDate(DataProvider.generateRandomBirthDate());
         registerPage.fillPassword(DataProvider.generateRandomPassword());
         registerPage.fillConfirmPassword(DataProvider.generateRandomConfirmPassword());
-        registerPage.fillPublicInfo(DataProvider.generateRandomInfo());
-
         registerPage.clickSignIn();
 
         header.clickProfilePage();
@@ -151,5 +145,25 @@ public class ProjectTests extends TestObject {
         profilePage.deletePost();
         profilePage.deleteConfirm();
         Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is not profile page!");
+    }
+
+    @Test(dataProvider = "getUser")
+    public void likePostTest(String username, String password){
+        Header header = new Header(webDriver);
+        HomePage homePage = new HomePage(webDriver);
+        LoginPage loginPage = new LoginPage(webDriver);
+
+        homePage.navigateTo();
+        Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded!");
+
+        header.clickLogin();
+        Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not Login!");
+
+        loginPage.completeSignIn(username, password);
+        Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded!");
+
+        homePage.selectFirstPostPicture();
+
+        homePage.clickLikeButton();
     }
 }

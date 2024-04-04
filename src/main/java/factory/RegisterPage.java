@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class RegisterPage {
-    public static final String PAGE_URL = "http://training.skillo-bg.com:4300/users/register";
+    public static final String PAGE_URL = "http://training.skillo-bg.com:4200/users/register";
     private final WebDriver webDriver;
 
     @FindBy(xpath = "/html/body/app-root/div[2]/app-register/div/div/form/div[1]/input")
@@ -50,12 +50,6 @@ public class RegisterPage {
         emailTextField.sendKeys(email);
     }
 
-    public void fillBirthDate(String birthdate){
-        WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.visibilityOf(birthDateTextField));
-        birthDateTextField.sendKeys(birthdate);
-    }
-
     public void fillPassword(String password) {
         WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOf(passwordTextField));
@@ -66,12 +60,6 @@ public class RegisterPage {
         WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOf(confirmPasswordTextField));
         confirmPasswordTextField.sendKeys(confirmpassword);
-    }
-
-    public void fillPublicInfo(String publicinfo){
-        WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.visibilityOf(publicInfoField));
-        publicInfoField.sendKeys(publicinfo);
     }
 
     public void clickSignIn(){
