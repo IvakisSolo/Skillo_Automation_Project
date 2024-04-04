@@ -4,23 +4,18 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.HashMap;
-import java.util.Map;
 
 public class TestObject {
     public static final String TEST_RESOURCES_DIR = "src\\test\\resources\\";
-    public static final String DOWNLOAD_DIR = TEST_RESOURCES_DIR.concat("download\\");
     public static final String SCREENSHOTS_DIR = TEST_RESOURCES_DIR.concat("screenshots\\");
     public static final String REPORTS_DIR = TEST_RESOURCES_DIR.concat("reports\\");
     private WebDriver webDriver;
@@ -33,7 +28,7 @@ public class TestObject {
     }
     @BeforeMethod(alwaysRun = true)
     protected final void setUpTest(){
-        this.webDriver = new ChromeDriver(configChromeOptions());
+        this.webDriver = new ChromeDriver();
         this.webDriver.manage().window().maximize();
         this.webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         this.webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -43,10 +38,7 @@ public class TestObject {
         takeScreenshot(testResult);
         quitDriver();
     }
-    @AfterSuite(alwaysRun = true)
-    public void deleteDownloadFiles() throws IOException{
-        cleanDirectory(DOWNLOAD_DIR);
-    }
+
     private void quitDriver(){
         if (this.webDriver != null){
             this.webDriver.quit();
@@ -55,14 +47,7 @@ public class TestObject {
     protected WebDriver getWebDriver(){
         return webDriver;
     }
-    private ChromeOptions configChromeOptions(){
-        Map<String, Object> prefs = new HashMap<>();
-        prefs.put("download.default_directory", System.getProperty("user.dir").concat("\\").concat(DOWNLOAD_DIR));
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setExperimentalOption("prefs", prefs);
-        chromeOptions.addArguments("disable-popup-blocking");
-        return chromeOptions;
-    }
+
     private void cleanDirectory(String directoryPath) throws IOException{
         File directory = new File(directoryPath);
         Assert.assertTrue(directory.isDirectory(), "Invalid directory");
