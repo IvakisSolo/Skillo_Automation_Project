@@ -8,4 +8,4 @@ The tests include:
 4. Deleting an already existing post; 
 5. Liking the first post on the home page;
 
-This suite also contains the option if a test fails to save a screenshot and contains a testng.xml that allows it to be executed using Maven commands. It works using Google Chrome browser. 
+This suite also contains the option if a test fails to save a screenshot and a testng.xml that allows it to be executed using Maven commands. It works using Google Chrome browser. 
