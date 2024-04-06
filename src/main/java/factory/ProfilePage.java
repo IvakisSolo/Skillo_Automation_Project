@@ -15,9 +15,9 @@ public class ProfilePage {
 
     @FindBy(xpath = "//*[@class='row no-gutters']//app-post[1]//*[@class='post-img']")
     private WebElement firstPost;
-    @FindBy(xpath = "//*[@class='delete-ask']//a")
+    @FindBy(xpath = "//*[@class='delete-ask']//*[text()='Delete post']")
     private WebElement deletePostButton;
-    @FindBy(xpath = "//*[@class='delete-confirm']//button[1]")
+    @FindBy(xpath = "//*[@class='delete-confirm']//button[text()='Yes']")
     private WebElement deleteConfirmButton;
     public ProfilePage(WebDriver driver){
         this.webDriver = driver;
