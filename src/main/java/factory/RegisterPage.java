@@ -13,18 +13,14 @@ public class RegisterPage {
     public static final String PAGE_URL = "http://training.skillo-bg.com:4200/users/register";
     private final WebDriver webDriver;
 
-    @FindBy(xpath = "/html/body/app-root/div[2]/app-register/div/div/form/div[1]/input")
+    @FindBy(xpath = "//*[@name='username']")
     private WebElement usernameTextField;
-    @FindBy(xpath = "/html/body/app-root/div[2]/app-register/div/div/form/div[2]/input")
+    @FindBy(xpath = "//*[@placeholder='email']")
     private WebElement emailTextField;
-    @FindBy(xpath = "/html/body/app-root/div[2]/app-register/div/div/form/div[3]/input")
-    private WebElement birthDateTextField;
     @FindBy(id = "defaultRegisterFormPassword")
     private WebElement passwordTextField;
     @FindBy(id = "defaultRegisterPhonePassword")
     private WebElement confirmPasswordTextField;
-    @FindBy(xpath = "/html/body/app-root/div[2]/app-register/div/div/form/div[6]/textarea")
-    private WebElement publicInfoField;
     @FindBy(id = "sign-in-button")
     private WebElement signInButton;
 

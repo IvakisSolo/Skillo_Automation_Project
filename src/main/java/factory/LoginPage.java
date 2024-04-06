@@ -13,9 +13,9 @@ public class LoginPage {
     public static final String PAGE_URL = "http://training.skillo-bg.com:4200/users/login";
     private final WebDriver webDriver;
 
-    @FindBy(id ="defaultLoginFormUsername")
+    @FindBy(id = "defaultLoginFormUsername")
     private WebElement usernameTextField;
-    @FindBy(xpath = "//form/input[@id='defaultLoginFormPassword']")
+    @FindBy(id = "defaultLoginFormPassword")
     private WebElement passwordTextFiled;
     @FindBy(xpath = "//*[@class='remember-me']/input[@type='checkbox']")
     private WebElement rememberMeCheckbox;

@@ -1,33 +1,16 @@
 import factory.*;
 import object.DataProvider;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.File;
 
 public class ProjectTests extends TestObject {
-    ChromeDriver webDriver;
-
-    @BeforeMethod(alwaysRun = true)
-    public void beforeTest(){
-        WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
-
-        webDriver.manage().window().maximize();
-    }
-
-    @AfterMethod(alwaysRun = true)
-    public void afterTest(){
-        webDriver.close();
-    }
 
     @Test
     public void registerUser(){
+        WebDriver webDriver = super.getWebDriver();
         Header header = new Header(webDriver);
         HomePage homePage = new HomePage(webDriver);
         LoginPage loginPage = new LoginPage(webDriver);
@@ -62,6 +45,7 @@ public class ProjectTests extends TestObject {
 
     @Test(dataProvider = "getUser")
     public void loginAndOutTest(String username, String password){
+        WebDriver webDriver = super.getWebDriver();
         Header header = new Header(webDriver);
         HomePage homePage = new HomePage(webDriver);
         LoginPage loginPage = new LoginPage(webDriver);
@@ -149,6 +133,7 @@ public class ProjectTests extends TestObject {
 
     @Test(dataProvider = "getUser")
     public void likePostTest(String username, String password){
+        WebDriver webDriver = super.getWebDriver();
         Header header = new Header(webDriver);
         HomePage homePage = new HomePage(webDriver);
         LoginPage loginPage = new LoginPage(webDriver);
