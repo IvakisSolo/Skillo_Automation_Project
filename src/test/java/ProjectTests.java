@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.File;
-
 public class ProjectTests extends TestObject {
 
     @Test
@@ -36,15 +34,8 @@ public class ProjectTests extends TestObject {
         Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is not profile page");
     }
 
-    @org.testng.annotations.DataProvider(name="getUser")
-    public Object[][] getUsers(){
-        return new Object[][]{
-                {"Ivakis", "Qwerty1"}
-        };
-    }
-
-    @Test(dataProvider = "getUser")
-    public void loginAndOutTest(String username, String password){
+    @Test
+    public void loginAndOutTest(){
         WebDriver webDriver = super.getWebDriver();
         Header header = new Header(webDriver);
         HomePage homePage = new HomePage(webDriver);
@@ -58,8 +49,8 @@ public class ProjectTests extends TestObject {
 
         Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not Login");
 
-        loginPage.fillInUsername(username);
-        loginPage.fillInPassword(password);
+        loginPage.fillInUsername(DataProvider.loginUsername());
+        loginPage.fillInPassword(DataProvider.loginPassword());
 
         loginPage.checkRememberMe();
         Assert.assertTrue(loginPage.isCheckedRememberMe(), "Remember me checkbox is not checked.");
@@ -72,17 +63,8 @@ public class ProjectTests extends TestObject {
         header.clickLogout();
     }
 
-    @org.testng.annotations.DataProvider(name = "getUserData")
-    public Object[][] getUsersData(){
-        File postPicture = new File("src\\test\\resources\\upload\\mona_cat.jpg");
-        String caption = "A picture of my cat";
-        return new Object[][]{
-                {"Ivakis", "Qwerty1", postPicture, caption}
-        };
-    }
-
-    @Test(dataProvider = "getUserData")
-    public void testPostPicture(String username, String password, File postPicture, String caption){
+    @Test
+    public void testPostPicture(){
         WebDriver webDriver = super.getWebDriver();
         Header header = new Header(webDriver);
         LoginPage loginPage = new LoginPage(webDriver);
@@ -92,7 +74,17 @@ public class ProjectTests extends TestObject {
         loginPage.navigateTo();
         Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not login page!");
 
-        loginPage.completeSignIn(username, password);
+        header.clickLogin();
+
+        Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not Login");
+
+        loginPage.fillInUsername(DataProvider.loginUsername());
+        loginPage.fillInPassword(DataProvider.loginPassword());
+
+        loginPage.checkRememberMe();
+        Assert.assertTrue(loginPage.isCheckedRememberMe(), "Remember me checkbox is not checked.");
+
+        loginPage.clickSignIn();
 
         header.clickProfilePage();
         Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is profile page!");
@@ -100,18 +92,18 @@ public class ProjectTests extends TestObject {
         header.clickNewPost();
         Assert.assertTrue(postPage.isNewPostLoaded(), "The New Post form is not loaded!");
 
-        postPage.uploadPicture(postPicture);
+        postPage.uploadPicture(DataProvider.getUsersPicture());
         String actualImageText = postPage.uploadedImageText();
         Assert.assertTrue(postPage.isImageUploaded("mona_cat.jpg"), "Image is not uploaded!");
         Assert.assertEquals(actualImageText, "mona_cat.jpg", "Incorrect image is uploaded!");
 
-        postPage.typePostCaption(caption);
+        postPage.typePostCaption(DataProvider.getUsersCaption());
         postPage.clickCreatePost();
         Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is not profile page!");
     }
 
-    @Test(dataProvider = "getUser")
-    public void deletePostPicture(String username, String password){
+    @Test
+    public void deletePostPicture(){
         WebDriver webDriver = super.getWebDriver();
         Header header = new Header(webDriver);
         LoginPage loginPage = new LoginPage(webDriver);
@@ -120,7 +112,17 @@ public class ProjectTests extends TestObject {
         loginPage.navigateTo();
         Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not login page!");
 
-        loginPage.completeSignIn(username, password);
+        header.clickLogin();
+
+        Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not Login");
+
+        loginPage.fillInUsername(DataProvider.loginUsername());
+        loginPage.fillInPassword(DataProvider.loginPassword());
+
+        loginPage.checkRememberMe();
+        Assert.assertTrue(loginPage.isCheckedRememberMe(), "Remember me checkbox is not checked.");
+
+        loginPage.clickSignIn();
 
         header.clickProfilePage();
         Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is profile page!");
@@ -131,8 +133,8 @@ public class ProjectTests extends TestObject {
         Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is not profile page!");
     }
 
-    @Test(dataProvider = "getUser")
-    public void likePostTest(String username, String password){
+    @Test
+    public void likePostTest(){
         WebDriver webDriver = super.getWebDriver();
         Header header = new Header(webDriver);
         HomePage homePage = new HomePage(webDriver);
@@ -142,9 +144,16 @@ public class ProjectTests extends TestObject {
         Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded!");
 
         header.clickLogin();
-        Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not Login!");
 
-        loginPage.completeSignIn(username, password);
+        Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not Login");
+
+        loginPage.fillInUsername(DataProvider.loginUsername());
+        loginPage.fillInPassword(DataProvider.loginPassword());
+
+        loginPage.checkRememberMe();
+        Assert.assertTrue(loginPage.isCheckedRememberMe(), "Remember me checkbox is not checked.");
+
+        loginPage.clickSignIn();
         Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded!");
 
         homePage.selectFirstPostPicture();

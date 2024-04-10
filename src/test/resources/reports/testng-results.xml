@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-04-10T19:56:38 EEST" name="Skillo Tests Suite" finished-at="2024-04-10T19:57:11 EEST" duration-ms="33595">
+    <groups>
+    </groups>
+    <test started-at="2024-04-10T19:56:38 EEST" name="Skillo Tests" finished-at="2024-04-10T19:57:11 EEST" duration-ms="33595">
+      <class name="ProjectTests">
+        <test-method is-config="true" signature="setupTestSuite()[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:38 EEST" name="setupTestSuite" finished-at="2024-04-10T19:56:38 EEST" duration-ms="234" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupTestSuite -->
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:38 EEST" name="setUpTest" finished-at="2024-04-10T19:56:39 EEST" duration-ms="1145" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="deletePostPicture()[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:39 EEST" name="deletePostPicture" finished-at="2024-04-10T19:56:42 EEST" duration-ms="3093" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deletePostPicture -->
+        <test-method is-config="true" signature="tearDownTest(org.testng.ITestResult)[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:42 EEST" name="tearDownTest" finished-at="2024-04-10T19:56:42 EEST" duration-ms="111" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=deletePostPicture status=SUCCESS method=ProjectTests.deletePostPicture()[pri:0, instance:ProjectTests@5fdcaa40] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:42 EEST" name="setUpTest" finished-at="2024-04-10T19:56:43 EEST" duration-ms="949" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="likePostTest()[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:43 EEST" name="likePostTest" finished-at="2024-04-10T19:56:48 EEST" duration-ms="5094" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- likePostTest -->
+        <test-method is-config="true" signature="tearDownTest(org.testng.ITestResult)[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:48 EEST" name="tearDownTest" finished-at="2024-04-10T19:56:48 EEST" duration-ms="103" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=likePostTest status=SUCCESS method=ProjectTests.likePostTest()[pri:0, instance:ProjectTests@5fdcaa40] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:48 EEST" name="setUpTest" finished-at="2024-04-10T19:56:49 EEST" duration-ms="945" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="loginAndOutTest()[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:49 EEST" name="loginAndOutTest" finished-at="2024-04-10T19:56:52 EEST" duration-ms="3085" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginAndOutTest -->
+        <test-method is-config="true" signature="tearDownTest(org.testng.ITestResult)[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:52 EEST" name="tearDownTest" finished-at="2024-04-10T19:56:52 EEST" duration-ms="75" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=loginAndOutTest status=SUCCESS method=ProjectTests.loginAndOutTest()[pri:0, instance:ProjectTests@5fdcaa40] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:52 EEST" name="setUpTest" finished-at="2024-04-10T19:56:53 EEST" duration-ms="883" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="registerUser()[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:53 EEST" name="registerUser" finished-at="2024-04-10T19:56:58 EEST" duration-ms="4423" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerUser -->
+        <test-method is-config="true" signature="tearDownTest(org.testng.ITestResult)[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:58 EEST" name="tearDownTest" finished-at="2024-04-10T19:56:58 EEST" duration-ms="88" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=registerUser status=SUCCESS method=ProjectTests.registerUser()[pri:0, instance:ProjectTests@5fdcaa40] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:58 EEST" name="setUpTest" finished-at="2024-04-10T19:56:59 EEST" duration-ms="952" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpTest -->
+        <test-method signature="testPostPicture()[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:56:59 EEST" name="testPostPicture" finished-at="2024-04-10T19:57:11 EEST" duration-ms="12519" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPostPicture -->
+        <test-method is-config="true" signature="tearDownTest(org.testng.ITestResult)[pri:0, instance:ProjectTests@5fdcaa40]" started-at="2024-04-10T19:57:11 EEST" name="tearDownTest" finished-at="2024-04-10T19:57:11 EEST" duration-ms="106" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testPostPicture status=SUCCESS method=ProjectTests.testPostPicture()[pri:0, instance:ProjectTests@5fdcaa40] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownTest -->
+      </class> <!-- ProjectTests -->
+    </test> <!-- Skillo Tests -->
+  </suite> <!-- Skillo Tests Suite -->
+</testng-results>

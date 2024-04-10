@@ -1,9 +1,32 @@
 package object;
 
 import org.apache.commons.lang3.RandomStringUtils;
+
+import java.io.File;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class DataProvider {
+
+    public static String loginUsername() {
+        String usernameLogin;
+        usernameLogin = "Ivakis";
+        return usernameLogin;
+    }
+    public static String loginPassword(){
+        String passwordLogin;
+        passwordLogin = "Qwerty1";
+        return passwordLogin;
+    }
+    public static File getUsersPicture(){
+        File postPicture;
+        postPicture = new File("src\\test\\resources\\upload\\mona_cat.jpg");
+        return postPicture;
+    }
+    public static String getUsersCaption(){
+        String caption;
+        caption = "A picture of my cat";
+        return caption;
+    }
 
     public static String generateRandomUsername() {
         String username = RandomStringUtils.randomAlphanumeric(7);

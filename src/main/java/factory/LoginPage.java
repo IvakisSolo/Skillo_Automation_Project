@@ -1,5 +1,6 @@
 package factory;
 
+import object.DataProvider;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,15 +33,15 @@ public class LoginPage {
         WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
         return wait.until(ExpectedConditions.urlToBe(PAGE_URL));
     }
-    public void fillInUsername(String username){
+    public void fillInUsername(String usernameLogin){
         WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOf(usernameTextField));
-        usernameTextField.sendKeys(username);
+        usernameTextField.sendKeys(usernameLogin);
     }
-    public void fillInPassword(String password){
+    public void fillInPassword(String passwordLogin){
         WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOf(passwordTextFiled));
-        passwordTextFiled.sendKeys(password);
+        passwordTextFiled.sendKeys(passwordLogin);
     }
     public void checkRememberMe(){
         WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
@@ -62,12 +63,5 @@ public class LoginPage {
         WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable(registerButton));
         registerButton.click();
-    }
-    public void completeSignIn(String username, String password){
-        fillInUsername(username);
-        fillInPassword(password);
-        checkRememberMe();
-        isCheckedRememberMe();
-        clickSignIn();
     }
 }
