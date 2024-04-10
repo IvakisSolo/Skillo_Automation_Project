@@ -39,7 +39,7 @@ public class ProjectTests extends TestObject {
     @org.testng.annotations.DataProvider(name="getUser")
     public Object[][] getUsers(){
         return new Object[][]{
-                {"Ivakis", "Qwerty1"}
+                {"Ivakis", "Qwerty"}
         };
     }
 

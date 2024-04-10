@@ -36,8 +36,8 @@ public class TestObject {
     @AfterMethod(alwaysRun = true)
     protected final void tearDownTest(ITestResult testResult){
         takeScreenshot(testResult);
-        webDriver.close();
         quitDriver();
+        webDriver.close();
     }
 
     private void quitDriver(){
