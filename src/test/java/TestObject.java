@@ -37,7 +37,6 @@ public class TestObject {
     protected final void tearDownTest(ITestResult testResult){
         takeScreenshot(testResult);
         quitDriver();
-        webDriver.close();
     }
 
     private void quitDriver(){

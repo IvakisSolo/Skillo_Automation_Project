@@ -39,7 +39,7 @@ public class ProjectTests extends TestObject {
     @org.testng.annotations.DataProvider(name="getUser")
     public Object[][] getUsers(){
         return new Object[][]{
-                {"Ivakis", "Qwerty"}
+                {"Ivakis", "Qwerty1"}
         };
     }
 
@@ -66,8 +66,8 @@ public class ProjectTests extends TestObject {
 
         loginPage.clickSignIn();
 
-        header.clickProfilePage();
         Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is not profile page");
+        header.clickProfilePage();
 
         header.clickLogout();
     }
