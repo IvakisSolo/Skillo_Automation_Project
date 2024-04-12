@@ -3,7 +3,7 @@ In this project there is a Test Suite containing 5 Tests that operate on the iSk
 
 The tests include: 
 1. Registering a new user on the platform; 
-2. Successful login and out of an existing user; 
+2. Successful log in and out of an existing user; 
 3. Creating a new post by uploading a picture and adding a caption to it; 
 4. Deleting an already existing post; 
 5. Liking the first post on the home page;

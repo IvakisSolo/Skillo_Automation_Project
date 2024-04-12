@@ -7,11 +7,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 
 public class TestObject {
@@ -37,6 +41,11 @@ public class TestObject {
     protected final void tearDownTest(ITestResult testResult){
         takeScreenshot(testResult);
         quitDriver();
+    }
+    @AfterSuite(alwaysRun = true)
+    protected final void finishingTestSuite(){
+        createGitKeepFile(SCREENSHOTS_DIR);
+        createGitKeepFile(REPORTS_DIR);
     }
 
     private void quitDriver(){
@@ -69,6 +78,15 @@ public class TestObject {
             }catch (IOException e){
                 System.out.println("Unable to create a screenshot file: " + e.getMessage());
             }
+        }
+    }
+    public static void createGitKeepFile(String directoryPath) {
+        Path gitKeepFilePath = Paths.get(directoryPath, ".gitkeep");
+        try {
+            Files.createFile(gitKeepFilePath);
+            System.out.println(".gitkeep file created successfully in " + directoryPath);
+        } catch (IOException e) {
+            System.err.println("Failed to create .gitkeep file: " + e.getMessage());
         }
     }
 }

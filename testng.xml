@@ -3,7 +3,7 @@
 <suite name="Skillo Tests Suite" verbose="1">
     <test name="Skillo Tests">
         <classes>
-            <class name="ProjectTests"></class>
+            <class name="ProjectTests"/>
         </classes>
     </test>
 </suite>
