@@ -57,8 +57,8 @@ public class ProjectTests extends TestObject {
 
         loginPage.clickSignIn();
 
-        Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is not profile page");
         header.clickProfilePage();
+        Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is not profile page");
 
         header.clickLogout();
     }
