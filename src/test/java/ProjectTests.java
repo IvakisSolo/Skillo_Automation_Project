@@ -46,7 +46,6 @@ public class ProjectTests extends TestObject {
         Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded");
 
         header.clickLogin();
-
         Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not Login");
 
         loginPage.fillInUsername(DataProvider.loginUsername());
@@ -56,17 +55,20 @@ public class ProjectTests extends TestObject {
         Assert.assertTrue(loginPage.isCheckedRememberMe(), "Remember me checkbox is not checked.");
 
         loginPage.clickSignIn();
+        Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded!");
 
         header.clickProfilePage();
         Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is not profile page");
 
         header.clickLogout();
+        Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not Login");
     }
 
     @Test
     public void testPostPicture(){
         WebDriver webDriver = super.getWebDriver();
         Header header = new Header(webDriver);
+        HomePage homePage = new HomePage(webDriver);
         LoginPage loginPage = new LoginPage(webDriver);
         ProfilePage profilePage = new ProfilePage(webDriver);
         PostPage postPage = new PostPage(webDriver);
@@ -74,10 +76,6 @@ public class ProjectTests extends TestObject {
         loginPage.navigateTo();
         Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not login page!");
 
-        header.clickLogin();
-
-        Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not Login");
-
         loginPage.fillInUsername(DataProvider.loginUsername());
         loginPage.fillInPassword(DataProvider.loginPassword());
 
@@ -85,9 +83,10 @@ public class ProjectTests extends TestObject {
         Assert.assertTrue(loginPage.isCheckedRememberMe(), "Remember me checkbox is not checked.");
 
         loginPage.clickSignIn();
+        Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded!");
 
         header.clickProfilePage();
-        Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is profile page!");
+        Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is not profile page!");
 
         header.clickNewPost();
         Assert.assertTrue(postPage.isNewPostLoaded(), "The New Post form is not loaded!");
@@ -106,15 +105,12 @@ public class ProjectTests extends TestObject {
     public void deletePostPicture(){
         WebDriver webDriver = super.getWebDriver();
         Header header = new Header(webDriver);
+        HomePage homePage = new HomePage(webDriver);
         LoginPage loginPage = new LoginPage(webDriver);
         ProfilePage profilePage = new ProfilePage(webDriver);
 
         loginPage.navigateTo();
         Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not login page!");
-
-        header.clickLogin();
-
-        Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not Login");
 
         loginPage.fillInUsername(DataProvider.loginUsername());
         loginPage.fillInPassword(DataProvider.loginPassword());
@@ -123,6 +119,7 @@ public class ProjectTests extends TestObject {
         Assert.assertTrue(loginPage.isCheckedRememberMe(), "Remember me checkbox is not checked.");
 
         loginPage.clickSignIn();
+        Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded!");
 
         header.clickProfilePage();
         Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is profile page!");
@@ -144,7 +141,6 @@ public class ProjectTests extends TestObject {
         Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded!");
 
         header.clickLogin();
-
         Assert.assertTrue(loginPage.isUrlLoaded(), "Current page is not Login");
 
         loginPage.fillInUsername(DataProvider.loginUsername());
