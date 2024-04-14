@@ -3,6 +3,8 @@ package factory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,8 +15,14 @@ public class HomePage {
 
     private final WebDriver webDriver;
 
+    @FindBy(xpath = "//div[@class='post-modal-container']//*[@class='like far fa-heart fa-2x']")
+    private WebElement likeButton;
+    @FindBy(xpath = "//div[@class='post-modal-container']//*[@class='like far fa-heart fa-2x liked']")
+    private WebElement likedButton;
+
     public HomePage(WebDriver driver){
         this.webDriver = driver;
+        PageFactory.initElements(webDriver, this);
     }
 
     public void navigateTo(){
@@ -32,8 +40,12 @@ public class HomePage {
     }
     public void clickLikeButton(){
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
-        WebElement likeButton = wait.until(ExpectedConditions.
-                elementToBeClickable(By.xpath("//div[@class='post-modal-container']//i[1]")));
+        wait.until(ExpectedConditions.elementToBeClickable(likeButton));
         likeButton.click();
+    }
+    public boolean isPostLiked(){
+        WebDriverWait wait = new WebDriverWait(this.webDriver,Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOf(likedButton));
+        return true;
     }
 }

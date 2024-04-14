@@ -21,6 +21,7 @@ public class PostPage {
     private WebElement postCaption;
     @FindBy(id = "create-post")
     private WebElement createPostButton;
+
     public PostPage(WebDriver driver){
         this.webDriver = driver;
         PageFactory.initElements(webDriver, this);

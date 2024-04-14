@@ -155,5 +155,6 @@ public class ProjectTests extends TestObject {
         homePage.selectFirstPostPicture();
 
         homePage.clickLikeButton();
+        Assert.assertTrue(homePage.isPostLiked(), "Post is not liked!");
     }
 }
