@@ -3,7 +3,10 @@
 <suite name="Skillo Tests Suite" verbose="1">
     <test name="Skillo Tests">
         <classes>
-            <class name="ProjectTests"/>
+            <class name="LoginPageTests"/>
+            <class name="RegisterPageTests"/>
+            <class name="HomePageTests"/>
+            <class name="ProfilePageTests"/>
         </classes>
     </test>
 </suite>

@@ -1,6 +1,5 @@
 package factory;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +18,8 @@ public class HomePage {
     private WebElement likeButton;
     @FindBy(xpath = "//div[@class='post-modal-container']//*[@class='like far fa-heart fa-2x liked']")
     private WebElement likedButton;
+    @FindBy(xpath = "//*[@class='row post-list-container ng-star-inserted']//*[@class='col-12 offset-md-1 col-md-10 offset-lg-3 col-lg-6 ng-star-inserted'][1]/app-post-detail//*[@class='post-feed-img']/img")
+    private WebElement firstPostPicture;
 
     public HomePage(WebDriver driver){
         this.webDriver = driver;
@@ -34,8 +35,7 @@ public class HomePage {
     }
     public void selectFirstPostPicture(){
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
-        WebElement firstPostPicture =  wait.until(ExpectedConditions.
-                visibilityOfElementLocated(By.xpath("//*[@class='container']//app-post-detail[1]//*[@class='post-feed-img']/img")));
+        wait.until(ExpectedConditions.elementToBeClickable(firstPostPicture));
         firstPostPicture.click();
     }
     public void clickLikeButton(){

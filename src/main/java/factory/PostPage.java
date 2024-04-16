@@ -1,6 +1,5 @@
 package factory;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +20,8 @@ public class PostPage {
     private WebElement postCaption;
     @FindBy(id = "create-post")
     private WebElement createPostButton;
+    @FindBy(xpath = "//*[@class='form-group']/input[@type='file']")
+    private WebElement uploadFile;
 
     public PostPage(WebDriver driver){
         this.webDriver = driver;
@@ -30,7 +31,6 @@ public class PostPage {
         return newPostTitle.isDisplayed();
     }
     public void uploadPicture(File file){
-        WebElement uploadFile = webDriver.findElement(By.xpath("//*[@class='form-group']/input[@type='file']"));
         uploadFile.sendKeys(file.getAbsolutePath());
     }
     public boolean isImageUploaded(String fileName){
